@@ -1,0 +1,105 @@
+﻿@page
+@model DotnetCore21.Pages.Character.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>CharacterBase</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Race" class="control-label"></label>
+                <input asp-for="CharacterBase.Race" class="form-control" />
+                <span asp-validation-for="CharacterBase.Race" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Masculinity" class="control-label"></label>
+                <input asp-for="CharacterBase.Masculinity" class="form-control" />
+                <span asp-validation-for="CharacterBase.Masculinity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Femininity" class="control-label"></label>
+                <input asp-for="CharacterBase.Femininity" class="form-control" />
+                <span asp-validation-for="CharacterBase.Femininity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Fitness" class="control-label"></label>
+                <input asp-for="CharacterBase.Fitness" class="form-control" />
+                <span asp-validation-for="CharacterBase.Fitness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Fatness" class="control-label"></label>
+                <input asp-for="CharacterBase.Fatness" class="form-control" />
+                <span asp-validation-for="CharacterBase.Fatness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Agility" class="control-label"></label>
+                <input asp-for="CharacterBase.Agility" class="form-control" />
+                <span asp-validation-for="CharacterBase.Agility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Strength" class="control-label"></label>
+                <input asp-for="CharacterBase.Strength" class="form-control" />
+                <span asp-validation-for="CharacterBase.Strength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Vitality" class="control-label"></label>
+                <input asp-for="CharacterBase.Vitality" class="form-control" />
+                <span asp-validation-for="CharacterBase.Vitality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Intelligence" class="control-label"></label>
+                <input asp-for="CharacterBase.Intelligence" class="form-control" />
+                <span asp-validation-for="CharacterBase.Intelligence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Willpower" class="control-label"></label>
+                <input asp-for="CharacterBase.Willpower" class="form-control" />
+                <span asp-validation-for="CharacterBase.Willpower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Luck" class="control-label"></label>
+                <input asp-for="CharacterBase.Luck" class="form-control" />
+                <span asp-validation-for="CharacterBase.Luck" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="CharacterBase.Id" />
+            <div class="form-group">
+                <label asp-for="CharacterBase.Title" class="control-label"></label>
+                <input asp-for="CharacterBase.Title" class="form-control" />
+                <span asp-validation-for="CharacterBase.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Description" class="control-label"></label>
+                <input asp-for="CharacterBase.Description" class="form-control" />
+                <span asp-validation-for="CharacterBase.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.TS" class="control-label"></label>
+                <input asp-for="CharacterBase.TS" class="form-control" />
+                <span asp-validation-for="CharacterBase.TS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterBase.Act" class="control-label"></label>
+                <input asp-for="CharacterBase.Act" class="form-control" />
+                <span asp-validation-for="CharacterBase.Act" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

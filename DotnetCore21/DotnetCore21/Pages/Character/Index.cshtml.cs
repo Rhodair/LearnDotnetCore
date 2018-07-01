@@ -6,23 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DotnetCore21.Models;
+using DotnetCore21.Models.Character;
 
-namespace DotnetCore21.Pages.Movies
+namespace DotnetCore21.Pages.Character
 {
     public class IndexModel : PageModel
     {
-        private readonly MainContext _context;
+        private readonly DotnetCore21.Models.MainContext _context;
 
-        public IndexModel(MainContext context)
+        public IndexModel(DotnetCore21.Models.MainContext context)
         {
             _context = context;
         }
 
-        public IList<Movie> Movie { get;set; }
+        public IList<A_Character> CharacterBase { get;set; }
 
         public async Task OnGetAsync()
         {
-            Movie = await _context.Movie.ToListAsync();
+            CharacterBase = await _context.Characters.ToListAsync();
         }
     }
 }

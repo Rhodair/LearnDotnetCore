@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DotnetCore21.Models;
+using DotnetCore21.Models.Character;
 
-namespace DotnetCore21.Pages.Movies
+namespace DotnetCore21.Pages.Character
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +20,7 @@ namespace DotnetCore21.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public A_Character CharacterBase { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +29,9 @@ namespace DotnetCore21.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FirstOrDefaultAsync(m => m.ID == id);
+            CharacterBase = await _context.Characters.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Movie == null)
+            if (CharacterBase == null)
             {
                 return NotFound();
             }
@@ -44,11 +45,11 @@ namespace DotnetCore21.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FindAsync(id);
+            CharacterBase = await _context.Characters.FindAsync(id);
 
-            if (Movie != null)
+            if (CharacterBase != null)
             {
-                _context.Movie.Remove(Movie);
+                _context.Characters.Remove(CharacterBase);
                 await _context.SaveChangesAsync();
             }
 

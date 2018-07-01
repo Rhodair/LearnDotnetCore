@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DotnetCore21.Models;
+using DotnetCore21.Models.Character;
 
-namespace DotnetCore21.Pages.Movies
+namespace DotnetCore21.Pages.Character
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +19,7 @@ namespace DotnetCore21.Pages.Movies
             _context = context;
         }
 
-        public Movie Movie { get; set; }
+        public A_Character CharacterBase { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,9 +28,9 @@ namespace DotnetCore21.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FirstOrDefaultAsync(m => m.ID == id);
+            CharacterBase = await _context.Characters.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Movie == null)
+            if (CharacterBase == null)
             {
                 return NotFound();
             }

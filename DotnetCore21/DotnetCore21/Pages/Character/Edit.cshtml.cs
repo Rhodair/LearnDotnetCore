@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotnetCore21.Models;
+using DotnetCore21.Models.Character;
 
-namespace DotnetCore21.Pages.Movies
+namespace DotnetCore21.Pages.Character
 {
     public class EditModel : PageModel
     {
@@ -20,7 +21,7 @@ namespace DotnetCore21.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public A_Character CharacterBase { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +30,9 @@ namespace DotnetCore21.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FirstOrDefaultAsync(m => m.ID == id);
+            CharacterBase = await _context.Characters.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Movie == null)
+            if (CharacterBase == null)
             {
                 return NotFound();
             }
@@ -45,7 +46,7 @@ namespace DotnetCore21.Pages.Movies
                 return Page();
             }
 
-            _context.Attach(Movie).State = EntityState.Modified;
+            _context.Attach(CharacterBase).State = EntityState.Modified;
 
             try
             {
@@ -53,7 +54,7 @@ namespace DotnetCore21.Pages.Movies
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MovieExists(Movie.ID))
+                if (!CharacterBaseExists(CharacterBase.Id))
                 {
                     return NotFound();
                 }
@@ -66,9 +67,9 @@ namespace DotnetCore21.Pages.Movies
             return RedirectToPage("./Index");
         }
 
-        private bool MovieExists(int id)
+        private bool CharacterBaseExists(int id)
         {
-            return _context.Movie.Any(e => e.ID == id);
+            return _context.Characters.Any(e => e.Id == id);
         }
     }
 }

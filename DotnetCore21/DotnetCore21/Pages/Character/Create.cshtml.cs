@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DotnetCore21.Models;
+using DotnetCore21.Models.Character;
 
-namespace DotnetCore21.Pages.Movies
+namespace DotnetCore21.Pages.Character
 {
     public class CreateModel : PageModel
     {
@@ -24,7 +25,7 @@ namespace DotnetCore21.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public A_Character CharacterBase { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +34,7 @@ namespace DotnetCore21.Pages.Movies
                 return Page();
             }
 
-            _context.Movie.Add(Movie);
+            _context.Characters.Add(CharacterBase);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
